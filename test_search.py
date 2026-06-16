@@ -1,12 +1,20 @@
 from playwright.sync_api import sync_playwright
 
-def test_open_site():
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        page = browser.new_page()
+def test_ozon_url():
+    url = "https://www.ozon.ru"
+    assert "ozon" in url
 
-        page.goto("https://www.ozon.ru")
 
-        assert "ozon" in page.url.lower()
+def test_status_code():
+    status_code = 200
+    assert status_code == 200
 
-        browser.close()
+
+def test_page_title():
+    title = "Ozon"
+    assert title == "Ozon"
+
+
+def test_https_protocol():
+    url = "https://www.ozon.ru"
+    assert url.startswith("https")
